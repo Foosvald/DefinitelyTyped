@@ -90,7 +90,7 @@ export class Offset {
 }
 
 export class KeyedMessage {
-    constructor(key: string, value: string | Buffer);
+    constructor(public key: string | Buffer, public value: string | Buffer);
 }
 
 // # Interfaces
@@ -102,7 +102,7 @@ export interface Message {
     partition?: number;
     highWaterOffset?: number;
     key?: string;
-  }
+}
 
 export interface ProducerOptions {
     requireAcks?: number;
@@ -160,10 +160,10 @@ export interface ConsumerOptions {
 }
 
 export interface HighLevelConsumerOptions extends ConsumerOptions {
-  id?: string;
-  maxNumSegments?: number;
-  maxTickMessages?: number;
-  rebalanceRetry?: RetryOptions;
+    id?: string;
+    maxNumSegments?: number;
+    maxTickMessages?: number;
+    rebalanceRetry?: RetryOptions;
 }
 
 export interface CustomPartitionAssignmentProtocol {
